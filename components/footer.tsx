@@ -21,7 +21,7 @@ const Footer = () => {
               <span className="text-xl font-bold tracking-tight">PLCcode.ai</span>
             </div>
             <p className="mt-4 text-muted-foreground">
-              Revolutionizing industrial automation with AI-powered PLC programming. 
+              Revolutionizing industrial automation with AI-powered PLC programming.
               Transform your development workflow with intelligent code generation.
             </p>
           </div>
@@ -48,7 +48,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div>
               <h6 className="font-semibold text-foreground mb-4">Company</h6>
               <ul className="space-y-3">
@@ -72,9 +72,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
+
       <Separator />
-      
+
       <div className="max-w-screen-xl mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
         {/* Copyright */}
         <span className="text-muted-foreground text-center xs:text-start">

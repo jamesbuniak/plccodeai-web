@@ -18,7 +18,7 @@ const Navbar = () => {
           <Button variant="outline" className="hidden sm:inline-flex">
             Contact
           </Button>
-          <Button 
+          <Button
             className="hidden xs:inline-flex"
             onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
           >

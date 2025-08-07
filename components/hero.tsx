@@ -17,9 +17,9 @@ const Hero = () => {
             Transform Your PLC Programming with AI
           </h1>
           <p className="mt-6 max-w-[60ch] xs:text-lg">
-            PLCcode.ai revolutionizes industrial automation with cutting-edge AI technology. 
-            Generate optimized PLC code for Studio 5000, TIA Portal, Codesys, and more with 
-            unprecedented efficiency and precision. Supporting OpenXML format means your system 
+            PLCcode.ai revolutionizes industrial automation with cutting-edge AI technology.
+            Generate optimized PLC code for Studio 5000, TIA Portal, Codesys, and more with
+            unprecedented efficiency and precision. Supporting OpenXML format means your system
             can most likely communicate with ours.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">

@@ -84,7 +84,7 @@ const Pricing = ({ compact = false }: PricingProps) => {
           Pre-Release Supporter Pricing
         </h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          PLCcode.ai is in pre-release. Your purchase funds API usage, development, and 
+          PLCcode.ai is in pre-release. Your purchase funds API usage, development, and
           infrastructure so we can launch faster.
         </p>
       </div>
@@ -116,8 +116,8 @@ const Pricing = ({ compact = false }: PricingProps) => {
             <CardHeader className="text-center pb-6">
               {/* Tier Badge */}
               {plan.badge && (
-                <Badge 
-                  variant={plan.isPopular ? "default" : "secondary"} 
+                <Badge
+                  variant={plan.isPopular ? "default" : "secondary"}
                   className="mx-auto mb-3 w-fit"
                 >
                   {plan.badge}
@@ -126,7 +126,7 @@ const Pricing = ({ compact = false }: PricingProps) => {
 
               {/* Plan Name */}
               <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
-              
+
               {/* Price */}
               <div className="mt-4 mb-2">
                 <span className="text-4xl font-bold">
@@ -152,7 +152,7 @@ const Pricing = ({ compact = false }: PricingProps) => {
 
             <CardContent className="px-6">
               <Separator className="mb-6" />
-              
+
               {/* Features List */}
               <ul className="space-y-3 mb-6">
                 {plan.features.map((feature, index) => (
@@ -196,7 +196,7 @@ const Pricing = ({ compact = false }: PricingProps) => {
       {/* Footnote */}
       <div className="text-center mt-12">
         <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          * Prices shown in USD. You can cancel anytime before renewal. Refunds available 
+          * Prices shown in USD. You can cancel anytime before renewal. Refunds available
           if we miss the public launch window.
         </p>
       </div>
