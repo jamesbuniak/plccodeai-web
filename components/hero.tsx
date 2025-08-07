@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, CirclePlay } from "lucide-react";
-import Image from "next/image";
+import FluidAnimation from "./fluid-animation";
 
 const Hero = () => {
   return (
@@ -39,13 +39,8 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-        <div className="relative lg:max-w-lg xl:max-w-xl w-full bg-accent rounded-xl aspect-square">
-          <Image
-            src="/placeholder.svg"
-            fill
-            alt=""
-            className="object-cover rounded-xl"
-          />
+        <div className="relative lg:max-w-lg xl:max-w-xl w-full aspect-square">
+          <FluidAnimation />
         </div>
       </div>
     </div>
