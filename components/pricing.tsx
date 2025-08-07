@@ -1,102 +1,204 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, Star } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    price: 19,
-    description:
-      "Get 20 AI-generated portraits with 2 unique styles and filters.",
+    id: "free",
+    name: "Free Tier",
+    price: 0,
+    period: "year",
+    tagline: "Try it risk-free",
+    badge: null,
+    label: "No credit card required",
     features: [
-      "5 hours turnaround time",
-      "20 AI portraits",
-      "Choice of 2 styles",
-      "Choice of 2 filters",
-      "2 retouch credits",
+      "Limited AI PLC code generation",
+      "1 export/day",
+      "1 saved project",
+      "Basic support",
     ],
-    buttonText: "Get 20 portraits in 5 hours",
+    note: null,
+    buttonText: "Start Free",
+    buttonVariant: "outline" as const,
+    buttonHref: "#signup",
+    isPopular: false,
   },
   {
-    name: "Advanced",
-    price: 29,
-    isRecommended: true,
-    description:
-      "Get 50 AI-generated portraits with 5 unique styles and filters.",
+    id: "pro",
+    name: "Pro Annual Supporter",
+    price: 599,
+    period: "year",
+    tagline: "Back us now, get full access at launch",
+    badge: "Early Supporter",
+    label: "Most Popular",
     features: [
-      "3 hours turnaround time",
-      "50 AI portraits",
-      "Choice of 5 styles",
-      "Choice of 5 filters",
-      "5 retouch credits",
+      "Unlimited exports",
+      "Supported OpenXML platforms (Siemens, Rockwell, Codesys, etc.)",
+      "10 saved projects",
+      "Priority support",
+      "Beta feature access",
     ],
-    buttonText: "Get 50 portraits in 3 hours",
+    note: "Your purchase directly supports API and development costs before launch.",
+    buttonText: "Get Pro",
+    buttonVariant: "default" as const,
+    buttonHref: "#checkout-pro",
     isPopular: true,
   },
   {
-    name: "Premium",
-    price: 49,
-    description:
-      "Get 100 AI-generated portraits with 10 unique styles and filters.",
+    id: "founders",
+    name: "Founders Annual",
+    price: 1199,
+    period: "year",
+    tagline: "Fund the future — lock in premium access for 12 months",
+    badge: "Founders Edition",
+    label: null,
     features: [
-      "1-hour turnaround time",
-      "100 AI portraits",
-      "Choice of 10 styles",
-      "Choice of 10 filters",
-      "10 retouch credits",
+      "Everything in Pro Annual",
+      "LD, ST, FBD generation",
+      "Unlimited saved projects",
+      "Early access to new platforms & features",
+      "Private feature request channel",
+      "Name on supporter wall",
     ],
-    buttonText: "Get 100 portraits in 1 hour",
+    note: "A one-year commitment that fuels our pre-release buildout and operations.",
+    buttonText: "Join Founders",
+    buttonVariant: "secondary" as const,
+    buttonHref: "#checkout-founders",
+    isPopular: false,
   },
 ];
 
-const Pricing = () => {
+interface PricingProps {
+  compact?: boolean;
+}
+
+const Pricing = ({ compact = false }: PricingProps) => {
   return (
-    <div id="pricing" className="max-w-screen-lg mx-auto py-12 xs:py-20 px-6">
-      <h1 className="text-4xl xs:text-5xl font-bold text-center tracking-tight">
-        Pricing
-      </h1>
-      <div className="mt-8 xs:mt-14 grid grid-cols-1 lg:grid-cols-3 items-center gap-8 lg:gap-0">
+    <div id="pricing" className="max-w-screen-xl mx-auto py-12 xs:py-20 px-6">
+      {/* Section Header */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          Pre-Release Supporter Pricing
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          PLCcode.ai is in pre-release. Your purchase funds API usage, development, and 
+          infrastructure so we can launch faster.
+        </p>
+      </div>
+
+      {/* Pricing Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         {plans.map((plan) => (
-          <div
-            key={plan.name}
+          <Card
+            key={plan.id}
             className={cn(
-              "relative bg-accent/50 border p-7 rounded-xl lg:rounded-none lg:first:rounded-l-xl lg:last:rounded-r-xl",
+              "relative transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
               {
-                "bg-background border-[2px] border-primary py-12 !rounded-xl":
+                "ring-2 ring-primary ring-offset-2 ring-offset-background scale-105 md:scale-110":
                   plan.isPopular,
+                "hover:shadow-primary/10": plan.isPopular,
               }
             )}
           >
+            {/* Popular Badge */}
             {plan.isPopular && (
-              <Badge className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2">
-                Most Popular
-              </Badge>
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-primary text-primary-foreground px-4 py-1 flex items-center gap-1">
+                  <Star className="w-3 h-3 fill-current" />
+                  {plan.label}
+                </Badge>
+              </div>
             )}
-            <h3 className="text-lg font-medium">{plan.name}</h3>
-            <p className="mt-2 text-4xl font-bold">${plan.price}</p>
-            <p className="mt-4 font-medium text-muted-foreground">
-              {plan.description}
-            </p>
-            <Separator className="my-6" />
-            <ul className="space-y-2">
-              {plan.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-2">
-                  <CircleCheck className="h-4 w-4 mt-1 text-green-600" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <Button
-              variant={plan.isPopular ? "default" : "outline"}
-              size="lg"
-              className="w-full mt-6 rounded-full"
-            >
-              {plan.buttonText}
-            </Button>
-          </div>
+
+            <CardHeader className="text-center pb-6">
+              {/* Tier Badge */}
+              {plan.badge && (
+                <Badge 
+                  variant={plan.isPopular ? "default" : "secondary"} 
+                  className="mx-auto mb-3 w-fit"
+                >
+                  {plan.badge}
+                </Badge>
+              )}
+
+              {/* Plan Name */}
+              <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
+              
+              {/* Price */}
+              <div className="mt-4 mb-2">
+                <span className="text-4xl font-bold">
+                  ${plan.price}
+                </span>
+                <span className="text-muted-foreground ml-1">
+                  / {plan.period}
+                </span>
+              </div>
+
+              {/* Tagline */}
+              <CardDescription className="text-sm font-medium">
+                {plan.tagline}
+              </CardDescription>
+
+              {/* Free Tier Label */}
+              {plan.label && !plan.isPopular && (
+                <Badge variant="outline" className="mt-2 mx-auto w-fit">
+                  {plan.label}
+                </Badge>
+              )}
+            </CardHeader>
+
+            <CardContent className="px-6">
+              <Separator className="mb-6" />
+              
+              {/* Features List */}
+              <ul className="space-y-3 mb-6">
+                {plan.features.map((feature, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CircleCheck className="h-4 w-4 mt-0.5 text-green-600 dark:text-green-500 shrink-0" />
+                    <span className="text-sm leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Support Note */}
+              {plan.note && (
+                <div className="bg-muted/50 rounded-lg p-3 mb-6">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {plan.note}
+                  </p>
+                </div>
+              )}
+            </CardContent>
+
+            <CardFooter className="px-6 pt-0">
+              <Button
+                variant={plan.buttonVariant}
+                size="lg"
+                className={cn(
+                  "w-full rounded-full font-medium transition-all duration-200",
+                  {
+                    "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
+                      plan.isPopular,
+                  }
+                )}
+                aria-label={`Choose ${plan.name} plan for $${plan.price} per ${plan.period}`}
+              >
+                {plan.buttonText}
+              </Button>
+            </CardFooter>
+          </Card>
         ))}
+      </div>
+
+      {/* Footnote */}
+      <div className="text-center mt-12">
+        <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          * Prices shown in USD. You can cancel anytime before renewal. Refunds available 
+          if we miss the public launch window.
+        </p>
       </div>
     </div>
   );

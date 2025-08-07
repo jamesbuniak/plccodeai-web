@@ -4,7 +4,8 @@ import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import { Navbar } from "@/components/navbar";
 import Pricing from "@/components/pricing";
-import Testimonial from "@/components/testimonial";
+import Countdown from "@/components/countdown";
+import WaitlistForm from "@/components/waitlist-form";
 
 export default function Home() {
   return (
@@ -13,8 +14,9 @@ export default function Home() {
       <Hero />
       <Features />
       <FAQ />
-      <Testimonial />
       <Pricing />
+      <Countdown />
+      <WaitlistForm />
       <Footer />
     </>
   );

@@ -1,49 +1,49 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
-  BookCheck,
-  ChartPie,
-  FolderSync,
-  Goal,
-  Users,
+  Cpu,
   Zap,
+  Target,
+  Brain,
+  Shield,
+  Rocket,
 } from "lucide-react";
 
 const features = [
   {
-    icon: Goal,
-    title: "Identify Opportunities",
+    icon: Brain,
+    title: "AI-Powered Code Generation",
     description:
-      "Easily uncover untapped areas to explore and expand your reach effortlessly.",
+      "Harness advanced neural networks to automatically generate optimized PLC code, reducing development time by up to 80%.",
   },
   {
-    icon: BookCheck,
-    title: "Build Authority",
+    icon: Target,
+    title: "Multi-Platform Support",
     description:
-      "Create valuable content that resonates, inspires trust, and positions you as an expert.",
-  },
-  {
-    icon: ChartPie,
-    title: "Instant Insights",
-    description:
-      "Gain immediate, actionable insights with a quick glance, enabling fast decision-making.",
-  },
-  {
-    icon: Users,
-    title: "Engage with Your Audience",
-    description:
-      "Boost audience engagement with interactive features like polls, quizzes, and forms.",
-  },
-  {
-    icon: FolderSync,
-    title: "Automate Your Workflow",
-    description:
-      "Streamline your processes by automating repetitive tasks, saving time and reducing effort.",
+      "Seamlessly work with Studio 5000, TIA Portal, Codesys, and other major PLC programming platforms in one unified interface.",
   },
   {
     icon: Zap,
-    title: "Accelerate Growth",
+    title: "Real-Time Learning",
     description:
-      "Supercharge your growth by implementing strategies that drive results quickly and efficiently.",
+      "Our AI continuously learns from industry best practices and your coding patterns to deliver increasingly accurate results.",
+  },
+  {
+    icon: Shield,
+    title: "Data-Driven Precision",
+    description:
+      "Utilize vast datasets for tailored solutions, ensuring your industrial automation projects are both innovative and reliable.",
+  },
+  {
+    icon: Cpu,
+    title: "Enhanced Accuracy",
+    description:
+      "Minimize errors and optimize performance with AI that understands industrial automation requirements and safety standards.",
+  },
+  {
+    icon: Rocket,
+    title: "Accelerated Development",
+    description:
+      "Transform weeks of programming work into hours with intelligent code generation and automated optimization workflows.",
   },
 ];
 
@@ -54,7 +54,7 @@ const Features = () => {
       className="max-w-screen-xl mx-auto w-full py-12 xs:py-20 px-6"
     >
       <h2 className="text-3xl xs:text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto">
-        Boost Your Strategy with Smart Features
+        Empower Your Projects with Advanced AI Technology
       </h2>
       <div className="mt-8 xs:mt-14 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
         {features.map((feature) => (

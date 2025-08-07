@@ -9,34 +9,49 @@ import { PlusIcon } from "lucide-react";
 
 const faq = [
   {
-    question: "What is your return policy?",
+    question: "What is PLCcode.ai?",
     answer:
-      "You can return unused items in their original packaging within 30 days for a refund or exchange. Contact support for assistance.",
+      "PLCcode.ai is an AI-powered assistant that generates high-quality PLC code for multiple platforms. Whether you use Siemens, Rockwell, Beckhoff, CODESYS, or others, our system can create logic from plain-language descriptions, saving you hours of development time.",
   },
   {
-    question: "How do I track my order?",
+    question: "How does it support multiple PLC brands?",
     answer:
-      "Track your order using the link provided in your confirmation email, or log into your account to view tracking details.",
+      "We use an Open XML-based intermediate format (including PLCopen XML and platform-specific schemas like Rockwell L5X) to generate code for multiple PLC platforms. This means you can design logic once and export it to the formats your hardware supports.",
   },
   {
-    question: "Do you ship internationally?",
+    question: "Which PLC platforms are supported?",
     answer:
-      "Yes, we ship worldwide. Shipping fees and delivery times vary by location, and customs duties may apply for some countries.",
+      "At launch, PLCcode.ai supports: CODESYS & IEC 61131-3 platforms (PLCopen XML export), Beckhoff TwinCAT, Rockwell Studio 5000 / Logix 5000 (L5X export), and Siemens TIA Portal (via Openness scripting). We're actively adding more platforms based on user demand.",
   },
   {
-    question: "What payment methods do you accept?",
+    question: "What languages can it generate?",
     answer:
-      "We accept Visa, MasterCard, American Express, PayPal, Apple Pay, and Google Pay, ensuring secure payment options for all customers.",
+      "Our AI can create: Ladder Diagram (LD), Structured Text (ST), Function Block Diagram (FBD), and platform-specific source code (e.g., SCL for Siemens, AOI routines for Rockwell).",
   },
   {
-    question: "What if I receive a damaged item?",
+    question: "Can I import my existing PLC programs?",
     answer:
-      "Please contact our support team within 48 hours of delivery with photos of the damaged item. We’ll arrange a replacement or refund.",
+      "Yes. You can upload PLCopen XML files and Rockwell L5X files. Our importer will parse them into an editable intermediate format so you can update or enhance them with AI before re-exporting.",
   },
   {
-    question: "How can I contact customer support?",
+    question: "Is the generated code production-ready?",
     answer:
-      "You can reach our support team via email at support@example.com or through the live chat on our website. We're available 24/7 to assist you.",
+      "We follow IEC standards and common industry best practices, but every project has unique requirements. We recommend reviewing all generated logic before deploying it to production systems.",
+  },
+  {
+    question: "Do I need programming experience to use PLCcode.ai?",
+    answer:
+      "No, but it helps. You can describe your control sequence in plain language, and the AI will generate PLC logic. If you're a seasoned engineer, you can fine-tune the logic, tag names, and data structures to match your company's standards.",
+  },
+  {
+    question: "How is my data handled?",
+    answer:
+      "Your uploaded files and generated code remain private to your account. We do not share your projects with third parties, and you can delete your data at any time.",
+  },
+  {
+    question: "What does it cost?",
+    answer:
+      "We offer: Free Plan – Try with basic exports and limited complexity, Pro Plan – Unlimited exports, advanced platforms, and complex logic generation, Enterprise Plan – White-label, API access, and on-premise deployment.",
   },
 ];
 
@@ -47,7 +62,7 @@ const FAQ = () => {
         Frequently Asked Questions
       </h2>
       <p className="mt-1.5 md:text-center xs:text-lg text-muted-foreground">
-        Quick answers to common questions about our products and services.
+        Everything you need to know about PLCcode.ai and how it transforms PLC programming.
       </p>
 
       <div className="min-h-[550px] md:min-h-[320px] xl:min-h-[300px]">

@@ -9,45 +9,45 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Beautiful Shadcn UI Landing Page",
+  title: "PLCcode.ai - Transform Your PLC Programming with AI",
   description:
-    "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+    "Revolutionize industrial automation with AI-powered PLC code generation. Support for Studio 5000, TIA Portal, Codesys, and more. Join the waitlist today.",
   keywords: [
-    "Shadcn UI Landing Page",
-    "Shadcn UI Blocks",
-    "Shadcn UI",
-    "Landing Page",
-    "Tailwind CSS Landing Page",
-    "Beautiful Shadcn UI Landing Page",
-    "Next.js 15 Landing Page",
-    "Simple Landing Page",
-    "Landing Page Template",
-    "Landing Page Design",
+    "PLC Programming",
+    "AI Code Generation",
+    "Industrial Automation",
+    "Studio 5000",
+    "TIA Portal",
+    "Codesys",
+    "PLCcode.ai",
+    "Artificial Intelligence",
+    "PLC Code",
+    "Automation Software",
   ],
   openGraph: {
     type: "website",
-    siteName: "Shadcn Landing Page",
+    siteName: "PLCcode.ai",
     locale: "en_US",
-    url: "https://shadcn-landing-page.vercel.app",
-    title: "Shadcn Landing Page",
+    url: "https://www.plccode.ai",
+    title: "PLCcode.ai - Transform Your PLC Programming with AI",
     description:
-      "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+      "Revolutionize industrial automation with AI-powered PLC code generation. Support for Studio 5000, TIA Portal, Codesys, and more.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Shadcn UI Landing Page Preview",
+        alt: "PLCcode.ai - AI-Powered PLC Programming",
       },
     ],
   },
   authors: [
     {
-      name: "Akash Moradiya",
-      url: "https://shadcnui-blocks.com",
+      name: "PLCcode.ai Team",
+      url: "https://www.plccode.ai",
     },
   ],
-  creator: "Akash Moradiya",
+  creator: "PLCcode.ai",
   icons: [
     {
       rel: "icon",
