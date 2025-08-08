@@ -1,3 +1,4 @@
+"use client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -44,8 +45,9 @@ const plans = [
     note: "Your purchase directly supports API and development costs before launch.",
     buttonText: "Get Pro",
     buttonVariant: "default" as const,
-    buttonHref: "#checkout-pro",
+    buttonHref: "stripe_pro",
     isPopular: true,
+    stripePriceId: "price_1Rtf2XLUmXA13VZnNhOrawAs",
   },
   {
     id: "founders",
@@ -66,8 +68,9 @@ const plans = [
     note: "A one-year commitment that fuels our pre-release buildout and operations.",
     buttonText: "Join Founders",
     buttonVariant: "secondary" as const,
-    buttonHref: "#checkout-founders",
+    buttonHref: "stripe_founders",
     isPopular: false,
+    stripePriceId: "price_1Rtf3yLUmXA13VZnQSiMNvoR",
   },
 ];
 
@@ -76,6 +79,18 @@ interface PricingProps {
 }
 
 const Pricing = ({ compact = false }: PricingProps) => {
+  const handleStripeCheckout = async (priceId: string) => {
+    const res = await fetch('/api/stripe/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ priceId }),
+    });
+    const data = await res.json();
+    if (data.url) {
+      window.location.href = data.url;
+    }
+  };
+
   return (
     <div id="pricing" className="max-w-screen-xl mx-auto py-12 xs:py-20 px-6">
       {/* Section Header */}
@@ -174,20 +189,38 @@ const Pricing = ({ compact = false }: PricingProps) => {
             </CardContent>
 
             <CardFooter className="px-6 pt-0">
-              <Button
-                variant={plan.buttonVariant}
-                size="lg"
-                className={cn(
-                  "w-full rounded-full font-medium transition-all duration-200",
-                  {
-                    "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
-                      plan.isPopular,
-                  }
-                )}
-                aria-label={`Choose ${plan.name} plan for $${plan.price} per ${plan.period}`}
-              >
-                {plan.buttonText}
-              </Button>
+              {plan.stripePriceId ? (
+                <Button
+                  variant={plan.buttonVariant}
+                  size="lg"
+                  className={cn(
+                    "w-full rounded-full font-medium transition-all duration-200",
+                    {
+                      "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
+                        plan.isPopular,
+                    }
+                  )}
+                  aria-label={`Choose ${plan.name} plan for $${plan.price} per ${plan.period}`}
+                  onClick={() => handleStripeCheckout(plan.stripePriceId!)}
+                >
+                  {plan.buttonText}
+                </Button>
+              ) : (
+                <Button
+                  variant={plan.buttonVariant}
+                  size="lg"
+                  className={cn(
+                    "w-full rounded-full font-medium transition-all duration-200",
+                    {
+                      "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
+                        plan.isPopular,
+                    }
+                  )}
+                  aria-label={`Choose ${plan.name} plan for $${plan.price} per ${plan.period}`}
+                >
+                  {plan.buttonText}
+                </Button>
+              )}
             </CardFooter>
           </Card>
         ))}

@@ -9,6 +9,11 @@ import { PlusIcon } from "lucide-react";
 
 const faq = [
     {
+        question: "Can PLCcode.ai help with legacy systems?",
+        answer:
+            "Yes, PLCcode.ai can assist with legacy PLC systems by analyzing OpenXML-formatted files and generating compatible code extensions, helping modernize and optimize older automation projects.",
+    },
+    {
         question: "How does PLCcode.ai stay up to date?",
         answer:
             "PLCcode.ai continuously evolves based on user feedback and advances in AI technology. We regularly update our platform to ensure you benefit from the latest automation innovations and compliance standards.",

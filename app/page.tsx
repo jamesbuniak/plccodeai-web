@@ -15,8 +15,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
-    {/* Interface Showcase Section */}
-    <InterfaceShowcase />
+      {/* Interface Showcase Section */}
+      <InterfaceShowcase />
       <FAQ />
       <Pricing />
       <Countdown />
