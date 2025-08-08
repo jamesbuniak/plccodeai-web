@@ -26,7 +26,9 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json({ url: session.url });
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    } catch (error: unknown) {
+        let message = "Unknown error";
+        if (error instanceof Error) message = error.message;
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

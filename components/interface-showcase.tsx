@@ -1,4 +1,4 @@
-import { Cpu, Zap, Target, Brain, Shield, Rocket } from "lucide-react";
+import { Cpu, Zap, Target, Brain } from "lucide-react";
 
 const interfaceFeatures = [
     {
