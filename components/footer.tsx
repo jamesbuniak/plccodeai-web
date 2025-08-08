@@ -68,7 +68,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="mailto:admin@plccode.ai" className="text-muted-foreground hover:text-foreground">
+                  <Link href="mailto:james@zuyzo.com" className="text-muted-foreground hover:text-foreground">
                     Contact
                   </Link>
                 </li>
