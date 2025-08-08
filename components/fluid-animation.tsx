@@ -253,7 +253,7 @@ const FluidAnimation = () => {
         };
 
         // Mouse interaction
-        let lastMousePosition = { x: 0, y: 0 };
+    const lastMousePosition = { x: 0, y: 0 };
         let mouseThrottleTime = 0;
 
         const onMouseMove = (event: MouseEvent) => {

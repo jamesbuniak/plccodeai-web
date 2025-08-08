@@ -79,7 +79,6 @@ interface PricingProps {
 }
 
 const Pricing = ({ compact = false }: PricingProps) => {
-  // const compact = false; // Removed unused assignment
   const handleStripeCheckout = async (priceId: string) => {
     const res = await fetch('/api/stripe/checkout', {
       method: 'POST',
