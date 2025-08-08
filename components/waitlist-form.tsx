@@ -48,10 +48,10 @@ const WaitlistForm = () => {
                         <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-500" />
                     </div>
                     <h2 className="text-3xl xs:text-4xl font-bold tracking-tight mb-4">
-                        You're on the list!
+                        You&apos;re on the list!
                     </h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                        Thank you for joining the PLCcode.ai waitlist. We'll keep you updated on our progress
+                        Thank you for joining the PLCcode.ai waitlist. We&apos;ll keep you updated on our progress
                         and notify you when early access becomes available.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -194,7 +194,7 @@ const WaitlistForm = () => {
 
                         {/* Use Case */}
                         <div className="space-y-2">
-                            <Label htmlFor="useCase">What's your primary use case for PLCcode.ai? (Optional)</Label>
+                            <Label htmlFor="useCase">What&apos;s your primary use case for PLCcode.ai? (Optional)</Label>
                             <Textarea
                                 id="useCase"
                                 placeholder="e.g., Manufacturing automation, Building management systems, Process control..."

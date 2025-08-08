@@ -74,11 +74,7 @@ const plans = [
   },
 ];
 
-interface PricingProps {
-  compact?: boolean;
-}
-
-const Pricing = ({ compact = false }: PricingProps) => {
+const Pricing = () => {
   const handleStripeCheckout = async (priceId: string) => {
     const res = await fetch('/api/stripe/checkout', {
       method: 'POST',

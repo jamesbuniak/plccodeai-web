@@ -152,11 +152,8 @@ const FluidAnimation = () => {
             // Parse HSL color (format: "h s% l%")
             const hslMatch = bgColor.match(/(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)%\s+(\d+(?:\.\d+)?)%/);
             if (hslMatch) {
-                const [, h, s, l] = hslMatch;
+                const l = hslMatch[3];
                 const lightness = parseFloat(l) / 100;
-
-                // Convert HSL lightness to RGB (simplified for grayscale themes)
-                // Since saturation is 0 for both light and dark themes, it's grayscale
                 return [lightness, lightness, lightness];
             }
 
@@ -253,7 +250,7 @@ const FluidAnimation = () => {
         };
 
         // Mouse interaction
-    const lastMousePosition = { x: 0, y: 0 };
+        const lastMousePosition = { x: 0, y: 0 };
         let mouseThrottleTime = 0;
 
         const onMouseMove = (event: MouseEvent) => {

@@ -45,7 +45,7 @@ const Countdown = () => {
                         🚀 Launch Countdown
                     </Badge>
                     <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                        We're Building the Future
+                        We&apos;re Building the Future
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                         PLCcode.ai is in active development. Join our pre-release supporters and be

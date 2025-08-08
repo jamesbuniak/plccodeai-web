@@ -1,4 +1,5 @@
 import { Cpu, Zap, Target, Brain } from "lucide-react";
+import Image from 'next/image';
 
 const interfaceFeatures = [
     {
@@ -54,7 +55,7 @@ const InterfaceShowcase = () => {
                             </dl>
                         </div>
                     </div>
-                    <img
+                    <Image
                         alt="PLCcode.ai Interface Screenshot"
                         src="/plccodeaiexample.png"
                         width={900}
