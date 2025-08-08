@@ -9,6 +9,16 @@ import { PlusIcon } from "lucide-react";
 
 const faq = [
     {
+        question: "How does PLCcode.ai stay up to date?",
+        answer:
+            "PLCcode.ai continuously evolves based on user feedback and advances in AI technology. We regularly update our platform to ensure you benefit from the latest automation innovations and compliance standards.",
+    },
+    {
+        question: "How does PLCcode.ai work with my files?",
+        answer:
+            "You upload an OpenXML-formatted file as the basis for your project. The system analyzes the file structure, generates code for the relevant sections, and exports your project in the same format. We do not create new schemas—your original structure is preserved and extended with AI-generated code.",
+    },
+    {
         question: "What PLC platforms does PLCcode.ai support?",
         answer:
             "We currently support Studio 5000, TIA Portal, Codesys, and other major PLC programming platforms. Our AI is trained on industry standards for each platform.",

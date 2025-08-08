@@ -57,9 +57,9 @@ const InterfaceShowcase = () => {
           <img
             alt="PLCcode.ai Interface Screenshot"
             src="/plccodeaiexample.png"
-            width={600}
-            height={400}
-            className="w-full max-w-none rounded-xl shadow-xl ring-1 ring-blue-400/20 sm:w-228 md:-ml-4 lg:-ml-0"
+            width={900}
+            height={600}
+            className="w-full max-w-none rounded-xl shadow-xl ring-1 ring-blue-400/20 sm:w-[900px] md:-ml-4 lg:-ml-0"
           />
         </div>
       </div>

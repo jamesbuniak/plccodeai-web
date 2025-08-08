@@ -11,6 +11,18 @@ import {
 const features = [
   {
     icon: Brain,
+    title: "Continuous Improvement",
+    description:
+      "Our platform evolves with user feedback and advances in AI, ensuring you always have access to the latest automation innovations and compliance standards.",
+  },
+  {
+    icon: Rocket,
+    title: "Transformative Service",
+    description:
+      "PLCcode.ai is a transformative service that enhances your workflow and productivity. We do not distribute vendor intellectual property; all code generation is original and based on user input and open standards.",
+  },
+  {
+    icon: Brain,
     title: "AI-Powered Code Generation",
     description:
       "Harness advanced neural networks to automatically generate optimized PLC code, reducing development time by up to 80%.",
@@ -19,7 +31,7 @@ const features = [
     icon: Target,
     title: "Multi-Platform Support",
     description:
-      "Seamlessly work with Studio 5000, TIA Portal, Codesys, and other major PLC programming platforms in one unified interface.",
+      "Works with major PLC platforms and structures, but does not copy or distribute proprietary code. All generated code is original and not affiliated with Rockwell, Siemens, or any other vendor.",
   },
   {
     icon: Zap,
@@ -44,6 +56,12 @@ const features = [
     title: "Accelerated Development",
     description:
       "Transform weeks of programming work into hours with intelligent code generation and automated optimization workflows.",
+  },
+  {
+    icon: Shield,
+    title: "Legal Compliance",
+    description:
+      "All code and structures generated are original and do not infringe on intellectual property of Rockwell, Siemens, or other PLC vendors. If you have legal concerns, please contact us for clarification.",
   },
 ];
 
@@ -71,9 +89,7 @@ const Features = () => {
                 {feature.description}
               </p>
             </CardHeader>
-            <CardContent className="mt-auto px-0 pb-0">
-              <div className="bg-muted h-52 ml-6 rounded-tl-xl" />
-            </CardContent>
+            {/* Removed image placeholder */}
           </Card>
         ))}
       </div>
