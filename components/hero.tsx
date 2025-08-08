@@ -39,7 +39,7 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-        <div className="relative w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-lg xl:max-w-xl aspect-square mx-auto flex items-center justify-center mb-8 lg:mb-0">
+        <div className="relative w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-lg xl:max-w-xl aspect-square mx-auto flex items-center justify-center -mt-12 z-10 mb-8 lg:mb-0">
           <FluidAnimation />
         </div>
       </div>
