@@ -374,8 +374,7 @@ const FluidAnimation = () => {
     return (
         <div
             ref={containerRef}
-            className="w-full h-full rounded-xl overflow-hidden bg-background"
-            style={{ minHeight: "400px" }}
+            className="w-full h-full min-h-[220px] xs:min-h-[260px] sm:min-h-[300px] md:min-h-[350px] lg:min-h-[400px] rounded-xl overflow-hidden bg-background"
         />
     );
 };
