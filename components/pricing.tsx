@@ -47,7 +47,7 @@ const plans = [
     buttonVariant: "default" as const,
     buttonHref: "stripe_pro",
     isPopular: true,
-    stripePriceId: "price_1Rtf2XLUmXA13VZnNhOrawAs",
+  stripePriceId: "price_1Rw4ZfLUmXA13VZnFFwDOBUy",
   },
   {
     id: "founders",

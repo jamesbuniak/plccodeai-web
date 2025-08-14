@@ -20,9 +20,9 @@ export async function POST(req: NextRequest) {
                     quantity: 1,
                 },
             ],
-            mode: "subscription",
+            mode: "payment",
             success_url: `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/pricing`,
+            cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/`,
         });
 
         return NextResponse.json({ url: session.url });

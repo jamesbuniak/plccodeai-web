@@ -9,49 +9,44 @@ import { PlusIcon } from "lucide-react";
 
 const faq = [
     {
-        question: "Can PLCcode.ai help with legacy systems?",
+        question: "What is PLCopen XML (IEC 61131-10)?",
         answer:
-            "Yes, PLCcode.ai can assist with legacy PLC systems by analyzing OpenXML-formatted files and generating compatible code extensions, helping modernize and optimize older automation projects.",
+            "A vendor-neutral XML format for PLC programs that preserves structure, comments, and metadata.",
     },
     {
-        question: "How does PLCcode.ai stay up to date?",
+        question: "Is the output production-ready?",
         answer:
-            "PLCcode.ai continuously evolves based on user feedback and advances in AI technology. We regularly update our platform to ensure you benefit from the latest automation innovations and compliance standards.",
+            "Output is vendor-ready but must be reviewed by a qualified engineer before production use.",
     },
     {
-        question: "How does PLCcode.ai work with my files?",
+        question: "Can you translate across vendors?",
         answer:
-            "You upload an OpenXML-formatted file as the basis for your project. The system analyzes the file structure, generates code for the relevant sections, and exports your project in the same format. We do not create new schemas—your original structure is preserved and extended with AI-generated code.",
+            "Yes, through PLCopen XML normalization and mapping templates per platform.",
     },
     {
-        question: "What PLC platforms does PLCcode.ai support?",
+        question: "Do you copy vendor code?",
         answer:
-            "We currently support Studio 5000, TIA Portal, Codesys, and other major PLC programming platforms. Our AI is trained on industry standards for each platform.",
+            "No, transformations are generated from your inputs and open standards.",
     },
     {
-        question: "How accurate is the AI-generated PLC code?",
+        question: "On-premises option?",
         answer:
-            "Our AI generates highly accurate, optimized code based on industry best practices. The system continuously learns and improves with each project to maintain the highest standards.",
+            "Planned — contact us for pilot opportunities.",
     },
     {
-        question: "Is PLCcode.ai suitable for safety-critical applications?",
+        question: "How is my data handled?",
         answer:
-            "Yes, our AI is trained on safety standards and best practices for industrial automation. However, we recommend thorough testing and validation for all safety-critical applications.",
+            "Your files and generated code remain private to your account. We never share your projects, and you can delete your data at any time.",
     },
     {
-        question: "When will PLCcode.ai be available?",
+        question: "Which PLC platforms are supported?",
         answer:
-            "We're currently in development and accepting waitlist registrations. Join our waitlist to be among the first to access PLCcode.ai when it launches.",
+            "We support major platforms including Rockwell, Siemens, Beckhoff, CODESYS, and any system compatible with PLCopen XML.",
     },
     {
-        question: "What makes PLCcode.ai different from traditional PLC programming?",
+        question: "What does it cost and what support is available?",
         answer:
-            "PLCcode.ai leverages advanced AI to automate code generation, reduce development time by up to 80%, and minimize human errors while maintaining industry standards.",
-    },
-    {
-        question: "How can I stay updated on PLCcode.ai progress?",
-        answer:
-            "Join our waitlist to receive regular updates on development progress, feature announcements, and early access opportunities for PLCcode.ai.",
+            "We offer Free, Pro, and Enterprise plans. All paid plans include priority support. See our pricing page for details.",
     },
 ];
 

@@ -15,65 +15,39 @@ import { useEffect, useState } from "react";
 const testimonials = [
   {
     id: 1,
-    name: "John Doe",
-    designation: "Software Engineer",
-    company: "TechCorp",
+    name: "Alex R.",
+    designation: "Automation Engineer",
+    company: "Global Manufacturing Inc.",
     testimonial:
-      "This product has completely transformed the way we work. The efficiency and ease of use are unmatched! " +
-      "We were struggling with productivity before, but this tool has streamlined our entire process. ",
-    avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+      "PLCcode.ai cut our PLC development time from weeks to days. The AI-generated code was clean, standards-compliant, and easy to integrate. Highly recommended for any automation team!",
+    avatar: "https://randomuser.me/api/portraits/men/11.jpg",
   },
   {
     id: 2,
-    name: "Jane Smith",
-    designation: "Product Manager",
-    company: "InnovateX",
+    name: "Priya S.",
+    designation: "Controls Lead",
+    company: "NextGen Automation",
     testimonial:
-      "An amazing tool that simplifies complex tasks. Highly recommended for professionals in the industry. " +
-      "The intuitive interface makes it easy to onboard new team members, and the automation features save us countless hours every week. ",
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+      "We modernized a legacy Siemens project in hours. The platform handled our OpenXML files perfectly and let us focus on process improvements instead of manual coding.",
+    avatar: "https://randomuser.me/api/portraits/women/12.jpg",
   },
   {
     id: 3,
-    name: "Michael Johnson",
-    designation: "UX Designer",
-    company: "DesignPro",
+    name: "Chris T.",
+    designation: "Systems Integrator",
+    company: "AutomateIQ",
     testimonial:
-      "The user experience is top-notch! The interface is clean, intuitive, and easy to navigate. " +
-      "As a designer, I appreciate the attention to detail and well-thought-out UI components. " +
-      "It makes designing and prototyping so much more efficient.",
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+      "The multi-platform support is a game-changer. We delivered a multi-vendor project on time and under budget thanks to PLCcode.ai's AI-driven workflow.",
+    avatar: "https://randomuser.me/api/portraits/men/13.jpg",
   },
   {
     id: 4,
-    name: "Emily Davis",
-    designation: "Marketing Specialist",
-    company: "BrandBoost",
+    name: "Maria L.",
+    designation: "Plant Manager",
+    company: "SmartFab Solutions",
     testimonial:
-      "I've seen a significant improvement in our team's productivity since we started using this service. " +
-      "The ability to track performance, analyze data, and collaborate across teams has been a game-changer.",
-    avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    id: 5,
-    name: "Daniel Martinez",
-    designation: "Full-Stack Developer",
-    company: "CodeCrafters",
-    testimonial:
-      "The best investment we've made! The support team is also super responsive and helpful. " +
-      "As a developer, I appreciate the well-documented API, the flexibility of integrations, and the robust security features.",
-    avatar: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    id: 6,
-    name: "Sophia Lee",
-    designation: "Data Analyst",
-    company: "InsightTech",
-    testimonial:
-      "This tool has saved me hours of work! The analytics and reporting features are incredibly powerful. " +
-      "I can now generate detailed reports in minutes, which previously took days to compile. " +
-      "helping us make smarter, data-backed decisions.",
-    avatar: "https://randomuser.me/api/portraits/women/6.jpg",
+      "Our team was able to import, update, and export PLC projects with zero hassle. The privacy and security features gave us peace of mind for sensitive operations.",
+    avatar: "https://randomuser.me/api/portraits/women/14.jpg",
   },
 ];
 const Testimonial = () => {

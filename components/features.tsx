@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { Card, CardHeader } from "@/components/ui/card";
 import {
   Cpu,
@@ -11,61 +13,44 @@ import {
 const features = [
   {
     icon: Brain,
-    title: "Continuous Improvement",
+    title: "AI-Driven Code Generation",
     description:
-      "Our platform evolves with user feedback and advances in AI, ensuring you always have access to the latest automation innovations and compliance standards.",
+      "Generate production-ready PLC code from plain language or project files. Our AI understands your requirements and delivers optimized logic for your platform.",
   },
   {
     icon: Rocket,
-    title: "Transformative Service",
+    title: "Accelerate Development",
     description:
-      "PLCcode.ai is a transformative service that enhances your workflow and productivity. We do not distribute vendor intellectual property; all code generation is original and based on user input and open standards.",
-  },
-  {
-    icon: Brain,
-    title: "AI-Powered Code Generation",
-    description:
-      "Harness advanced neural networks to automatically generate optimized PLC code, reducing development time by up to 80%.",
+      "Reduce PLC programming time by up to 80%. Focus on innovation while our AI handles the boilerplate and repetitive tasks.",
   },
   {
     icon: Target,
     title: "Multi-Platform Support",
     description:
-      "Works with major PLC platforms and structures, but does not copy or distribute proprietary code. All generated code is original and not affiliated with Rockwell, Siemens, or any other vendor.",
+      "Works with Studio 5000, TIA Portal, Codesys, Beckhoff, and more. Export in OpenXML, L5X, and other industry formats.",
   },
   {
     icon: Zap,
-    title: "Real-Time Learning",
+    title: "Modernize Legacy Projects",
     description:
-      "Our AI continuously learns from industry best practices and your coding patterns to deliver increasingly accurate results.",
+      "Import existing PLC projects, update with AI, and export to new platforms. Breathe new life into legacy automation systems.",
   },
   {
     icon: Shield,
-    title: "Data-Driven Precision",
+    title: "Data Privacy & Security",
     description:
-      "Utilize vast datasets for tailored solutions, ensuring your industrial automation projects are both innovative and reliable.",
+      "Your files and logic remain private. We never share your data, and you control your project lifecycle.",
   },
   {
     icon: Cpu,
-    title: "Enhanced Accuracy",
+    title: "Standards Compliance",
     description:
-      "Minimize errors and optimize performance with AI that understands industrial automation requirements and safety standards.",
-  },
-  {
-    icon: Rocket,
-    title: "Accelerated Development",
-    description:
-      "Transform weeks of programming work into hours with intelligent code generation and automated optimization workflows.",
-  },
-  {
-    icon: Shield,
-    title: "Legal Compliance",
-    description:
-      "All code and structures generated are original and do not infringe on intellectual property of Rockwell, Siemens, or other PLC vendors. If you have legal concerns, please contact us for clarification.",
+      "All code is generated to IEC 61131-3 and industry best practices. Our AI is trained on safety and compliance requirements.",
   },
 ];
 
 const Features = () => {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   return (
     <div
       id="features"
@@ -75,10 +60,19 @@ const Features = () => {
         Empower Your Projects with Advanced AI Technology
       </h2>
       <div className="mt-8 xs:mt-14 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-        {features.map((feature) => (
+        {features.map((feature, idx) => (
           <Card
             key={feature.title}
-            className="flex flex-col border rounded-xl overflow-hidden shadow-none"
+            className={`flex flex-col border rounded-xl overflow-hidden shadow-none transition-all duration-300 ${
+              hoveredIdx !== null && hoveredIdx !== idx
+                ? "blur-sm opacity-60"
+                : hoveredIdx === idx
+                ? "scale-105 z-10"
+                : ""
+            }`}
+            onMouseEnter={() => setHoveredIdx(idx)}
+            onMouseLeave={() => setHoveredIdx(null)}
+            style={{ cursor: "pointer" }}
           >
             <CardHeader>
               <feature.icon />
@@ -89,7 +83,6 @@ const Features = () => {
                 {feature.description}
               </p>
             </CardHeader>
-            {/* Removed image placeholder */}
           </Card>
         ))}
       </div>
