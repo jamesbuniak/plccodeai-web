@@ -14,11 +14,11 @@ const Hero = () => {
           <Badge className="rounded-full py-1 border-none max-w-fit inline-block">
             AI-Powered PLC Code Generation
           </Badge>
-          <h1 className="mt-6 max-w-[20ch] text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2] tracking-tight">
-            Automate Industrial Logic. <br className="hidden xs:inline" /> Accelerate Innovation.
+          <h1 className="mt-6 max-w-[28ch] text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold !leading-[1.2] tracking-tight">
+            Generate, Convert, and Modernize PLC Code — in Minutes, Not Weeks
           </h1>
           <p className="mt-6 max-w-[60ch] xs:text-lg">
-            Instantly generate, modernize, and optimize PLC code for Rockwell, Siemens, Codesys, and more. Upload your project or describe your logic—our AI delivers production-ready code in minutes, not weeks. <span className="font-semibold">No vendor lock-in. No manual drudgery. Just results.</span>
+            AI-powered PLC development for Rockwell, Siemens, CODESYS, Beckhoff, and more. Import existing logic, translate across vendors, and export in native formats like L5X and PLCopen XML — without sacrificing quality or compliance.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
             <Button
