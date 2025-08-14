@@ -55,11 +55,29 @@ const ShieldAnimation = dynamic(() => import("@/components/shield-animation"), {
 function HowItWorksCards() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth < 640);
     }
   }, []);
+
+  // On mobile, remove focus when the card is scrolled out of view
+  useEffect(() => {
+    if (!isMobile) return;
+    if (hoveredIdx === null) return;
+    const handleScroll = () => {
+      const ref = cardRefs.current[hoveredIdx];
+      if (!ref) return;
+      const rect = ref.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        setHoveredIdx(null);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile, hoveredIdx]);
+
   const steps = [
     {
       title: "Upload or Describe",
@@ -81,6 +99,7 @@ function HowItWorksCards() {
         {steps.map((step, idx) => (
           <div
             key={step.title}
+            ref={el => cardRefs.current[idx] = el}
             className={`bg-accent/60 rounded-2xl shadow-sm p-7 flex flex-col items-start h-full transition-all duration-300 ${
               !isMobile && hoveredIdx !== null && hoveredIdx !== idx
                 ? "blur-sm opacity-60"
@@ -90,6 +109,7 @@ function HowItWorksCards() {
             }`}
             onMouseEnter={() => !isMobile && setHoveredIdx(idx)}
             onMouseLeave={() => !isMobile && setHoveredIdx(null)}
+            onClick={() => isMobile && setHoveredIdx(idx)}
             style={{ cursor: "pointer" }}
           >
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-primary-foreground font-bold mb-4 text-lg">{idx + 1}</div>
