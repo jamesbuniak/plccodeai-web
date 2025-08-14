@@ -99,7 +99,7 @@ function HowItWorksCards() {
         {steps.map((step, idx) => (
           <div
             key={step.title}
-            ref={el => cardRefs.current[idx] = el}
+            ref={el => { cardRefs.current[idx] = el; return undefined; }}
             className={`bg-accent/60 rounded-2xl shadow-sm p-7 flex flex-col items-start h-full transition-all duration-300 ${
               !isMobile && hoveredIdx !== null && hoveredIdx !== idx
                 ? "blur-sm opacity-60"
