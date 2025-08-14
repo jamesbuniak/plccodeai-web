@@ -1,16 +1,48 @@
-
-
-
-
-
 "use client";
+
+function ModernChatInterfaceSection() {
+  return (
+    <section id="modern-chat-interface" className="max-w-screen-xl mx-auto w-full py-16 xs:py-24 px-6 flex flex-col md:flex-row items-center gap-12">
+      <div className="flex-1 min-w-[280px]">
+        <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          Modern Chat Interface for Industrial Automation
+        </h2>
+        <p className="text-lg text-muted-foreground mb-6 max-w-2xl">
+          Experience the next generation of PLC programming with a beautiful, intuitive chat interface. Collaborate, generate, and refine automation code in real time—just like chatting with an expert engineer. Our interface is designed for speed, clarity, and productivity, making industrial automation accessible to everyone.
+        </p>
+        <ul className="list-disc ml-6 text-base text-muted-foreground space-y-2 mb-6">
+          <li><span className="font-semibold text-foreground">Conversational AI</span> for code generation and troubleshooting</li>
+          <li><span className="font-semibold text-foreground">Instant previews</span> and code suggestions as you type</li>
+          <li><span className="font-semibold text-foreground">Seamless collaboration</span> with your team and version control</li>
+          <li><span className="font-semibold text-foreground">Mobile-friendly</span> and works on any device</li>
+        </ul>
+        <div className="text-primary font-bold text-xl mt-4">See why engineers are calling PLCcode.ai a game changer.</div>
+      </div>
+      <div className="flex-1 flex justify-center items-center min-w-[320px]">
+        <img
+          src="/plccodeaiexample.png"
+          alt="Modern chat interface example for PLCcode.ai"
+          className="rounded-2xl shadow-2xl border max-w-full h-auto"
+          style={{
+            width: '100%',
+            maxWidth: '750px', // 25% larger than 600px
+            height: 'auto',
+            maxHeight: '600px', // 25% larger than 480px
+            objectFit: 'contain',
+            margin: 0
+          }}
+        />
+      </div>
+    </section>
+  );
+}
 import { useState, useRef } from "react";
 import Hero from "@/components/hero";
 import Features from "@/components/features";
 import Pricing from "@/components/pricing";
 import FAQ from "@/components/faq-new";
 import WaitlistForm from "@/components/waitlist-form";
-import Countdown from "@/components/countdown";
+//import Countdown from "@/components/countdown";
 import Footer from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import SectionFadeIn from "@/components/section-fade-in";
@@ -106,15 +138,14 @@ export default function Home() {
     { key: "hero", content: <Hero /> },
     { key: "features", content: <Features /> },
     { key: "howitworks", content: <HowItWorksCards /> },
+    { key: "modernchat", content: <ModernChatInterfaceSection /> },
     { key: "problem", content: <ProblemSolutionClientWrapper /> },
     { key: "security", content: (
       <div id="security" className="max-w-screen-xl mx-auto w-full py-20 xs:py-32 px-6">
   <div className="grid md:grid-cols-2 gap-2 md:gap-6 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 whitespace-pre-line leading-tight">
-              Security&
-              <br />Compliance&
-              <br />Guaranteed
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              Security & Compliance
             </h2>
             <p className="text-lg text-muted-foreground mb-6 font-medium">Your automation data is protected by industry-leading security and privacy standards.</p>
             <ul className="list-disc ml-6 text-base text-muted-foreground space-y-2">
@@ -134,10 +165,10 @@ export default function Home() {
         </div>
       </div>
     ) },
-  { key: "pricing", content: <Pricing /> },
+    { key: "pricing", content: <Pricing /> },
   { key: "faq", content: <FAQ /> },
   { key: "waitlist", content: <WaitlistForm /> },
-  { key: "countdown", content: <Countdown /> },
+  //{ key: "countdown", content: <Countdown /> },
   { key: "about", content: (
       <div id="about" className="max-w-screen-xl mx-auto w-full py-12 xs:py-20 px-6">
         <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto mb-8">About PLCcode.ai</h2>
