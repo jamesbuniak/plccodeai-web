@@ -36,7 +36,7 @@ function ModernChatInterfaceSection() {
     </section>
   );
 }
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Hero from "@/components/hero";
 import Features from "@/components/features";
 import Pricing from "@/components/pricing";
@@ -107,6 +107,25 @@ type SectionWithBlurProps = {
 function SectionWithBlur(props: SectionWithBlurProps) {
   const { sectionKey, activeSection, setActiveSection, children } = props;
   const leaveTimeout = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Auto-refocus on mobile when section is scrolled into view
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.innerWidth >= 640) return; // Only on mobile
+    if (!sectionRef.current) return;
+    const handleScroll = () => {
+      const rect = sectionRef.current!.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.2) {
+        setActiveSection(sectionKey);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sectionKey, setActiveSection]);
+
   const handleMouseEnter = () => {
     if (leaveTimeout.current) clearTimeout(leaveTimeout.current);
     setActiveSection(sectionKey);
@@ -116,6 +135,7 @@ function SectionWithBlur(props: SectionWithBlurProps) {
   };
   return (
     <div
+      ref={sectionRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`transition-all duration-300 my-8 ${activeSection && activeSection !== sectionKey ? 'sm:blur-sm sm:opacity-60' : ''}`}
