@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, CirclePlay } from "lucide-react";
 import FluidAnimation from "./fluid-animation";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -40,17 +41,28 @@ const Hero = () => {
           </div>
           {/* Animation below buttons on mobile */}
           <div className="flex lg:hidden w-full items-center justify-center mt-10">
-            <img
+            <Image
               src="/blueball.png"
               alt="Blue Ball Animation"
+              width={400}
+              height={400}
               className="w-full max-w-md aspect-square mx-auto"
               style={{ objectFit: 'contain' }}
+              priority
             />
           </div>
         </div>
         {/* Desktop animation position */}
         <div className="hidden lg:flex relative w-full max-w-lg xl:max-w-xl aspect-square mx-auto items-center justify-center">
-          <FluidAnimation />
+          <div
+            style={{
+              opacity: 1,
+              animation: 'fadeInFluid 3.5s ease-in',
+            }}
+            className="w-full h-full"
+          >
+            <FluidAnimation />
+          </div>
         </div>
       </div>
     </div>

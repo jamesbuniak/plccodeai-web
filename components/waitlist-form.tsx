@@ -10,7 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowUpRight, CheckCircle, Mail, Building, Users } from "lucide-react";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+
+let supabase: any = null;
+if (typeof window !== "undefined") {
+    supabase = require("@/lib/supabase").supabase;
+}
 
 const WaitlistForm = () => {
     const [email, setEmail] = useState("");
@@ -31,28 +35,32 @@ const WaitlistForm = () => {
     };
 
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+        const handleSubmit = async (e: React.FormEvent) => {
+                e.preventDefault();
+                setIsSubmitting(true);
 
-        const { error } = await supabase.from('plccodeai_waitlist').insert([
-            {
-                name,
-                email,
-                company,
-                role,
-                platforms,
-                use_case: useCase,
-            }
-        ]);
+                let error = null;
+                if (supabase) {
+                    const res = await supabase.from('plccodeai_waitlist').insert([
+                        {
+                            name,
+                            email,
+                            company,
+                            role,
+                            platforms,
+                            use_case: useCase,
+                        }
+                    ]);
+                    error = res.error;
+                }
 
-        setIsSubmitting(false);
-        if (!error) {
-            setIsSubmitted(true);
-        } else {
-            alert('There was an error joining the waitlist. Please try again.');
-        }
-    };
+                setIsSubmitting(false);
+                if (!error) {
+                        setIsSubmitted(true);
+                } else {
+                        alert('There was an error joining the waitlist. Please try again.');
+                }
+        };
 
     if (isSubmitted) {
         return (
