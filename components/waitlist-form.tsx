@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowUpRight, CheckCircle, Mail, Building, Users } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const WaitlistForm = () => {
     const [email, setEmail] = useState("");
@@ -29,15 +30,28 @@ const WaitlistForm = () => {
         }
     };
 
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        const { error } = await supabase.from('plccodeai_waitlist').insert([
+            {
+                name,
+                email,
+                company,
+                role,
+                platforms,
+                use_case: useCase,
+            }
+        ]);
 
-        setIsSubmitted(true);
         setIsSubmitting(false);
+        if (!error) {
+            setIsSubmitted(true);
+        } else {
+            alert('There was an error joining the waitlist. Please try again.');
+        }
     };
 
     if (isSubmitted) {

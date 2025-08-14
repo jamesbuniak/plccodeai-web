@@ -225,8 +225,7 @@ const Pricing = () => {
       {/* Footnote */}
       <div className="text-center mt-12">
         <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          * Prices shown in USD. You can cancel anytime before renewal. Refunds available
-          if we miss the public launch window.
+          * Prices shown in USD. You can cancel anytime before renewal.
         </p>
       </div>
     </div>
