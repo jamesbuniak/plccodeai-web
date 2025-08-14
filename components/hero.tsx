@@ -47,13 +47,15 @@ const Hero = () => {
       {/* FluidAnimation in its own section for mobile only */}
       <section className="lg:hidden w-full flex items-center justify-center py-10">
         <div
-          className="mx-auto w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[360px] md:h-[360px]"
+          className="w-full flex items-center justify-center"
           style={{
             opacity: 1,
             animation: 'fadeInFluid 3.5s ease-in',
           }}
         >
-          <FluidAnimation />
+          <div className="w-full max-w-[480px] aspect-square">
+            <FluidAnimation />
+          </div>
         </div>
       </section>
     </>
