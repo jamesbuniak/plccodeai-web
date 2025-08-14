@@ -42,7 +42,7 @@ import Features from "@/components/features";
 import Pricing from "@/components/pricing";
 import FAQ from "@/components/faq-new";
 import WaitlistForm from "@/components/waitlist-form";
-//import Countdown from "@/components/countdown";
+import Countdown from "@/components/countdown";
 import Footer from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import SectionFadeIn from "@/components/section-fade-in";
@@ -166,10 +166,10 @@ export default function Home() {
       </div>
     ) },
     { key: "pricing", content: <Pricing /> },
-  { key: "faq", content: <FAQ /> },
-  { key: "waitlist", content: <WaitlistForm /> },
-  //{ key: "countdown", content: <Countdown /> },
-  { key: "about", content: (
+    { key: "faq", content: <FAQ /> },
+    { key: "countdown", content: <Countdown /> },
+    { key: "waitlist", content: <WaitlistForm /> },
+    { key: "about", content: (
       <div id="about" className="max-w-screen-xl mx-auto w-full py-12 xs:py-20 px-6">
         <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto mb-8">About PLCcode.ai</h2>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground text-center mb-8">
