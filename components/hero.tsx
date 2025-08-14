@@ -31,15 +31,19 @@ const Hero = () => {
           </div>
           {/* Animation below buttons on mobile */}
           <div className="flex lg:hidden w-full items-center justify-center mt-10">
-            <Image
-              src="/blueball.png"
-              alt="Blue Ball Animation"
-              width={400}
-              height={400}
-              className="w-full max-w-md aspect-square mx-auto"
-              style={{ objectFit: 'contain' }}
-              priority
-            />
+            <div
+              style={{
+                width: '100%',
+                maxWidth: 340,
+                aspectRatio: '1/1',
+                margin: '0 auto',
+                opacity: 1,
+                animation: 'fadeInFluid 3.5s ease-in',
+              }}
+              className="w-full max-w-xs aspect-square"
+            >
+              <FluidAnimation />
+            </div>
           </div>
         </div>
         {/* Desktop animation position */}
