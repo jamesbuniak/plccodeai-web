@@ -54,6 +54,12 @@ const ShieldAnimation = dynamic(() => import("@/components/shield-animation"), {
 
 function HowItWorksCards() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth < 640);
+    }
+  }, []);
   const steps = [
     {
       title: "Upload or Describe",
@@ -76,14 +82,14 @@ function HowItWorksCards() {
           <div
             key={step.title}
             className={`bg-accent/60 rounded-2xl shadow-sm p-7 flex flex-col items-start h-full transition-all duration-300 ${
-              hoveredIdx !== null && hoveredIdx !== idx
+              !isMobile && hoveredIdx !== null && hoveredIdx !== idx
                 ? "blur-sm opacity-60"
-                : hoveredIdx === idx
+                : !isMobile && hoveredIdx === idx
                 ? "scale-105 z-10"
                 : ""
             }`}
-            onMouseEnter={() => setHoveredIdx(idx)}
-            onMouseLeave={() => setHoveredIdx(null)}
+            onMouseEnter={() => !isMobile && setHoveredIdx(idx)}
+            onMouseLeave={() => !isMobile && setHoveredIdx(null)}
             style={{ cursor: "pointer" }}
           >
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-primary-foreground font-bold mb-4 text-lg">{idx + 1}</div>
