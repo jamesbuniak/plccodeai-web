@@ -97,6 +97,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0a192f" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@plccodeai" />
+        <meta name="twitter:title" content="PLCcode.ai - Transform Your PLC Programming with AI" />
+        <meta name="twitter:description" content="Revolutionize industrial automation with AI-powered PLC code generation. Support for Studio 5000, TIA Portal, Codesys, and more. Join the waitlist today." />
+        <meta name="twitter:image" content="/og-image.png" />
+        <link rel="canonical" href="https://www.plccode.ai/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.plccode.ai/" />
+        <meta property="og:title" content="PLCcode.ai - Transform Your PLC Programming with AI" />
+        <meta property="og:description" content="Revolutionize industrial automation with AI-powered PLC code generation. Support for Studio 5000, TIA Portal, Codesys, and more." />
+        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:site_name" content="PLCcode.ai" />
+        <meta property="og:locale" content="en_US" />
+      </head>
       <body className={`${geistSans.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
