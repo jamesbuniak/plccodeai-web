@@ -118,10 +118,9 @@ function SectionWithBlur(props: SectionWithBlurProps) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`transition-all duration-300 my-8 ${activeSection && activeSection !== sectionKey ? 'blur-sm opacity-60' : ''}`}
+      className={`transition-all duration-300 my-8 ${activeSection && activeSection !== sectionKey ? 'sm:blur-sm sm:opacity-60' : ''}`}
     >
       {children}
-
     </div>
   );
 }
