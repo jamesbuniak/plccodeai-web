@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import FluidAnimation from "./fluid-animation";
-import Image from "next/image";
 
 const Hero = () => {
   return (

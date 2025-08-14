@@ -139,12 +139,14 @@ function SectionWithBlur(props: SectionWithBlurProps) {
   const handleMouseLeave = () => {
     leaveTimeout.current = setTimeout(() => setActiveSection(null), 200) as NodeJS.Timeout;
   };
+  // Only apply blur/opacity on desktop
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
   return (
     <div
       ref={sectionRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`transition-all duration-300 my-8 ${activeSection && activeSection !== sectionKey ? 'sm:blur-sm sm:opacity-60' : ''}`}
+      className={`transition-all duration-300 my-8 ${!isMobile && activeSection && activeSection !== sectionKey ? 'blur-sm opacity-60' : ''}`}
     >
       {children}
     </div>
