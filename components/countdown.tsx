@@ -12,9 +12,18 @@ const Countdown = () => {
     });
 
     useEffect(() => {
-        // Set target date to 365 days from now
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 365);
+        // Countdown to 6 months from now (robust add)
+        const nowDate = new Date();
+        // Add 6 months robustly
+        let targetMonth = nowDate.getMonth() + 6;
+    const targetYear = nowDate.getFullYear() + Math.floor(targetMonth / 12);
+        targetMonth = targetMonth % 12;
+        // Clamp day to last day of target month
+        const targetDay = Math.min(
+            nowDate.getDate(),
+            new Date(targetYear, targetMonth + 1, 0).getDate()
+        );
+        const targetDate = new Date(targetYear, targetMonth, targetDay, nowDate.getHours(), nowDate.getMinutes(), nowDate.getSeconds());
 
         const updateCountdown = () => {
             const now = new Date().getTime();
@@ -27,6 +36,8 @@ const Countdown = () => {
                     minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
                     seconds: Math.floor((distance % (1000 * 60)) / 1000),
                 });
+            } else {
+                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
             }
         };
 
