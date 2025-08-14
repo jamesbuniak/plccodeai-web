@@ -9,17 +9,18 @@ import { CircleCheck, Star } from "lucide-react";
 const plans = [
   {
     id: "free",
-    name: "Free Tier",
+    name: "Free Forever",
     price: 0,
-    period: "year",
-    tagline: "Try it risk-free",
+    period: "one-time",
+    tagline: "Get started instantly. No credit card required.",
     badge: null,
-    label: "No credit card required",
+    label: "Best for exploring",
     features: [
-      "Limited AI PLC code generation",
-      "1 export/day",
-      "1 saved project",
-      "Basic support",
+      "Access to our email newsletter & updates",
+      "Basic AI PLC code generation (limited)",
+      "1 export per day",
+      "Early access notifications",
+      "Community support forum",
     ],
     note: null,
     buttonText: "Start Free",
@@ -28,75 +29,61 @@ const plans = [
     isPopular: false,
   },
   {
-    id: "pro",
-    name: "Pro Annual Supporter",
-    price: 599,
-    period: "year",
-    tagline: "Back us now, get full access at launch",
-    badge: "Early Supporter",
+    id: "supporter",
+    name: "Supporter Pass (1 Year)",
+    price: 999,
+    period: "one-time",
+    tagline: "Unlock everything for a full year after launch.",
+    badge: "Best Value",
     label: "Most Popular",
     features: [
-      "Unlimited exports",
-      "Supported OpenXML platforms (Siemens, Rockwell, Codesys, etc.)",
-      "10 saved projects",
-      "Priority support",
-      "Beta feature access",
+      "Unlimited access for 1 year after launch",
+      "All platforms & features included",
+      "Priority email support",
+      "Recognition as a founding supporter",
+      "Direct feedback channel to the team",
     ],
-    note: "Your purchase directly supports API and development costs before launch.",
-    buttonText: "Get Pro",
+    note: "Your one-time purchase helps us build and launch PLCcode.ai. You'll receive a full year of unlimited access after we go live. Cancel anytime before renewal.",
+    buttonText: "Support for $999",
     buttonVariant: "default" as const,
-    buttonHref: "stripe_pro",
+    buttonHref: "#support",
     isPopular: true,
-  stripePriceId: "price_1Rw4ZfLUmXA13VZnFFwDOBUy",
   },
   {
-    id: "founders",
-    name: "Founders Annual",
-    price: 1199,
-    period: "year",
-    tagline: "Fund the future — lock in premium access for 12 months",
+    id: "founder",
+    name: "Founders Lifetime (Limited)",
+    price: 1999,
+    period: "one-time",
+    tagline: "Lifetime access. Shape the roadmap. Only 20 spots!",
     badge: "Founders Edition",
-    label: null,
+    label: "Limited: 20 spots",
     features: [
-      "Everything in Pro Annual",
-      "LD, ST, FBD generation",
-      "Unlimited saved projects",
-      "Early access to new platforms & features",
-      "Private feature request channel",
-      "Name on supporter wall",
+      "Unlimited lifetime access for one user",
+      "All platforms & features, forever",
+      "Direct input on product roadmap",
+      "Private calls with the team",
+      "Recognition on our website",
+      "VIP support & roadmap influence",
     ],
-    note: "A one-year commitment that fuels our pre-release buildout and operations.",
-    buttonText: "Join Founders",
+    note: "Only 20 Founders spots available. This is a one-time opportunity for lifetime access and a direct line to influence the future of PLCcode.ai.",
+    buttonText: "Become a Founder ($1,999)",
     buttonVariant: "secondary" as const,
-    buttonHref: "stripe_founders",
+    buttonHref: "#founder",
     isPopular: false,
-    stripePriceId: "price_1Rtf3yLUmXA13VZnQSiMNvoR",
   },
 ];
 
 const Pricing = () => {
-  const handleStripeCheckout = async (priceId: string) => {
-    const res = await fetch('/api/stripe/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ priceId }),
-    });
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    }
-  };
 
   return (
     <div id="pricing" className="max-w-screen-xl mx-auto py-12 xs:py-20 px-6">
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight mb-4">
-          Pre-Release Supporter Pricing
+          Support PLCcode.ai — Early Access & Lifetime Deals
         </h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          PLCcode.ai is in pre-release. Your purchase funds API usage, development, and
-          infrastructure so we can launch faster.
+          PLCcode.ai is in pre-release. Your support funds development, API usage, and infrastructure so we can launch faster and build the best AI-powered PLC platform. Choose your path below — lifetime deals and early access are limited!
         </p>
       </div>
 
@@ -185,38 +172,20 @@ const Pricing = () => {
             </CardContent>
 
             <CardFooter className="px-6 pt-0">
-              {plan.stripePriceId ? (
-                <Button
-                  variant={plan.buttonVariant}
-                  size="lg"
-                  className={cn(
-                    "w-full rounded-full font-medium transition-all duration-200",
-                    {
-                      "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
-                        plan.isPopular,
-                    }
-                  )}
-                  aria-label={`Choose ${plan.name} plan for $${plan.price} per ${plan.period}`}
-                  onClick={() => handleStripeCheckout(plan.stripePriceId!)}
-                >
-                  {plan.buttonText}
-                </Button>
-              ) : (
-                <Button
-                  variant={plan.buttonVariant}
-                  size="lg"
-                  className={cn(
-                    "w-full rounded-full font-medium transition-all duration-200",
-                    {
-                      "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
-                        plan.isPopular,
-                    }
-                  )}
-                  aria-label={`Choose ${plan.name} plan for $${plan.price} per ${plan.period}`}
-                >
-                  {plan.buttonText}
-                </Button>
-              )}
+              <Button
+                variant={plan.buttonVariant}
+                size="lg"
+                className={cn(
+                  "w-full rounded-full font-medium transition-all duration-200",
+                  {
+                    "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
+                      plan.isPopular,
+                  }
+                )}
+                aria-label={`Choose ${plan.name} plan for $${plan.price} one-time`}
+              >
+                {plan.buttonText}
+              </Button>
             </CardFooter>
           </Card>
         ))}
@@ -225,7 +194,7 @@ const Pricing = () => {
       {/* Footnote */}
       <div className="text-center mt-12">
         <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          * Prices shown in USD. You can cancel anytime before renewal.
+          * Prices shown in USD. Founders Lifetime is strictly limited to 20 spots. All paid plans are one-time payments — no subscriptions, no hidden fees.
         </p>
       </div>
     </div>

@@ -1,13 +1,15 @@
 import { Separator } from "@/components/ui/separator";
-import {
-  LinkedinIcon,
-  GithubIcon,
-  TwitterIcon,
-  YoutubeIcon,
-} from "lucide-react";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const Footer = () => {
+  const [showEmail, setShowEmail] = useState(false);
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowEmail(true);
+  };
+  const handleClose = () => setShowEmail(false);
   return (
     <footer className="mt-12 xs:mt-20 dark bg-background border-t">
       <div className="max-w-screen-xl mx-auto py-12 px-6">
@@ -68,10 +70,29 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="mailto:james@zuyzo.com" className="text-muted-foreground hover:text-foreground">
+                  <button
+                    className="text-muted-foreground hover:text-foreground focus:outline-none"
+                    onClick={handleContactClick}
+                  >
                     Contact
-                  </Link>
+                  </button>
                 </li>
+      {showEmail && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="bg-background rounded-xl shadow-lg p-8 max-w-xs w-full text-center relative">
+            <button
+              className="absolute top-2 right-3 text-lg text-muted-foreground hover:text-foreground"
+              onClick={handleClose}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
+            <p className="mb-2">Email:</p>
+            <a href="mailto:james@zuyzo.com" className="text-primary font-medium underline break-all">james@zuyzo.com</a>
+          </div>
+        </div>
+      )}
                 <li>
                   <Link href="#" className="text-muted-foreground hover:text-foreground">
                     Privacy Policy
@@ -88,27 +109,10 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
         {/* Copyright */}
         <span className="text-muted-foreground text-center xs:text-start">
-          &copy; {new Date().getFullYear()}{" "}
-          <Link href="https://www.plccode.ai" target="_blank">
-            PLCcode.ai
-          </Link>
-          . All rights reserved.
+          &copy; 2025 <Link href="https://www.zuyzo.com" target="_blank">Zuyzo</Link>. All rights reserved.
         </span>
 
-        <div className="flex items-center gap-5 text-muted-foreground">
-          <Link href="#" target="_blank">
-            <TwitterIcon className="h-5 w-5" />
-          </Link>
-          <Link href="#" target="_blank">
-            <LinkedinIcon className="h-5 w-5" />
-          </Link>
-          <Link href="#" target="_blank">
-            <YoutubeIcon className="h-5 w-5" />
-          </Link>
-          <Link href="#" target="_blank">
-            <GithubIcon className="h-5 w-5" />
-          </Link>
-        </div>
+  {/* Social links removed as requested */}
       </div>
     </footer>
   );
