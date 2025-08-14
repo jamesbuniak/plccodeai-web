@@ -31,10 +31,15 @@ const Hero = () => {
           {/* Animation below buttons on mobile */}
           <div className="flex lg:hidden w-full items-center justify-center mt-10">
             <div
-              className="flex items-center justify-center w-full max-w-xs aspect-square mx-auto"
+              className="mx-auto"
               style={{
+                width: 240,
+                height: 240,
                 opacity: 1,
                 animation: 'fadeInFluid 3.5s ease-in',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               <FluidAnimation />
