@@ -56,8 +56,11 @@ export const NavigationSheet = () => {
                 ×
               </button>
               <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
-              <p className="mb-2">Email:</p>
-              <a href="mailto:james@zuyzo.com" className="text-primary font-medium underline break-all">james@zuyzo.com</a>
+              <p className="mb-3 text-base text-muted-foreground">
+                Need to reach out about partnership, support, feedback, or anything else? Send us an email and our team will get back to you as soon as possible. We love hearing from users and collaborators—let us know how we can help!
+              </p>
+              <div className="mb-2 font-medium">Email:</div>
+              <a href="mailto:info@zuyzo.com" className="text-primary font-medium underline break-all">info@zuyzo.com</a>
             </div>
           </div>
         )}

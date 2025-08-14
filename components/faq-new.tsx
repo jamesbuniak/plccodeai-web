@@ -44,9 +44,19 @@ const faq = [
             "We support major platforms including Rockwell, Siemens, Beckhoff, CODESYS, and any system compatible with PLCopen XML.",
     },
     {
+        question: "Does PLCcode.ai support Git or version control?",
+        answer:
+            "Yes! PLCcode.ai will offer Git integration for your PLC projects. You’ll be able to connect your GitHub, GitLab, or Bitbucket account to version, backup, and collaborate on your automation code. This makes it easy to track changes, roll back, and work with your team.",
+    },
+    {
+        question: "Can PLCcode.ai help me convert code between PLC platforms?",
+        answer:
+            "Yes! PLCcode.ai is designed to help you convert automation logic between supported PLC platforms. Upload your project or describe your logic, select your target platform, and our AI will generate compatible code—making cross-vendor migrations and upgrades much easier.",
+    },
+    {
         question: "What does it cost and what support is available?",
         answer:
-            "We offer Free, Pro, and Enterprise plans. All paid plans include priority support. See our pricing page for details.",
+            "PLCcode.ai offers three options: Free Forever (basic access), Supporter Pass ($999 one-time for 1 year unlimited access after launch), and Founders Lifetime ($1,999 one-time, lifetime access, only 20 spots). All paid plans include priority support and exclusive benefits. See our pricing page for full details.",
     },
 ];
 

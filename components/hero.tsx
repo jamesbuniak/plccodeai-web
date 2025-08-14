@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, CirclePlay } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import FluidAnimation from "./fluid-animation";
 import Image from "next/image";
 
@@ -27,13 +27,6 @@ const Hero = () => {
               onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Join the Waitlist <ArrowUpRight className="!h-5 !w-5" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full sm:w-auto rounded-full text-base shadow-none"
-            >
-              <CirclePlay className="!h-5 !w-5" /> Watch Demo
             </Button>
           </div>
           {/* Animation below buttons on mobile */}

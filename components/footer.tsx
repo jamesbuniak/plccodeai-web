@@ -2,12 +2,18 @@ import { Separator } from "@/components/ui/separator";
 
 import Link from "next/link";
 import { useState } from "react";
+import PrivacyPolicyPopup from "@/components/privacy-policy-popup";
+import LegalPopup from "@/components/legal-popup";
 
 const Footer = () => {
   const [showEmail, setShowEmail] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showLegal, setShowLegal] = useState(false);
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setShowEmail(true);
+    setShowPrivacy(false);
+    setShowLegal(false);
   };
   const handleClose = () => setShowEmail(false);
   return (
@@ -44,17 +50,33 @@ const Footer = () => {
               <h6 className="font-semibold text-foreground mb-4">Product</h6>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#features" className="text-muted-foreground hover:text-foreground">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#pricing" className="text-muted-foreground hover:text-foreground">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
                   <Link href="#waitlist" className="text-muted-foreground hover:text-foreground">
+                    Join Waitlist
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    className="text-muted-foreground hover:text-foreground focus:outline-none"
+                    onClick={() => setShowPrivacy(true)}
+                  >
+                    Privacy Policy
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="text-muted-foreground hover:text-foreground focus:outline-none"
+                    onClick={() => setShowLegal(true)}
+                  >
+                    Legal Notice
+                  </button>
+                </li>
+                    <button
+                      className="text-muted-foreground hover:text-foreground focus:outline-none"
+                      onClick={() => setShowLegal(true)}
+                    >
+                      Legal Notice
+                    </button>
+                  </li>
                     Join Waitlist
                   </Link>
                 </li>
@@ -72,13 +94,37 @@ const Footer = () => {
                 <li>
                   <button
                     className="text-muted-foreground hover:text-foreground focus:outline-none"
-                    onClick={handleContactClick}
+    </footer>
+    {showEmail && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+        <div className="bg-background rounded-xl shadow-lg p-8 max-w-xs w-full text-center relative">
+          <button
+            className="absolute top-2 right-3 text-lg text-muted-foreground hover:text-foreground"
+            onClick={handleClose}
+            aria-label="Close"
+          >
+            ×
+          </button>
+          <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
+          <p className="mb-3 text-base text-muted-foreground">
+            Need to reach out about partnership, support, feedback, or anything else? Send us an email and our team will get back to you as soon as possible. We love hearing from users and collaborators—let us know how we can help!
+          </p>
+          <div className="mb-2 font-medium">Email:</div>
+          <a href="mailto:info@zuyzo.com" className="text-primary font-medium underline break-all">info@zuyzo.com</a>
+        </div>
+      </div>
+    )}
+    {showPrivacy && (
+      <PrivacyPolicyPopup open={showPrivacy} onClose={() => setShowPrivacy(false)} />
+    )}
+    {showLegal && (
+      <LegalPopup open={showLegal} onClose={() => setShowLegal(false)} />
+    )}
+                    onClick={() => setShowLegal(true)}
                   >
-                    Contact
+                    Legal Notice
                   </button>
                 </li>
-      {showEmail && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
           <div className="bg-background rounded-xl shadow-lg p-8 max-w-xs w-full text-center relative">
             <button
               className="absolute top-2 right-3 text-lg text-muted-foreground hover:text-foreground"
@@ -88,8 +134,11 @@ const Footer = () => {
               ×
             </button>
             <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
-            <p className="mb-2">Email:</p>
-            <a href="mailto:james@zuyzo.com" className="text-primary font-medium underline break-all">james@zuyzo.com</a>
+            <p className="mb-3 text-base text-muted-foreground">
+              Need to reach out about partnership, support, feedback, or anything else? Send us an email and our team will get back to you as soon as possible. We love hearing from users and collaborators—let us know how we can help!
+            </p>
+            <div className="mb-2 font-medium">Email:</div>
+            <a href="mailto:info@zuyzo.com" className="text-primary font-medium underline break-all">info@zuyzo.com</a>
           </div>
         </div>
       )}
@@ -109,6 +158,12 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
         {/* Copyright */}
         <span className="text-muted-foreground text-center xs:text-start">
+      {showPrivacy && (
+        <PrivacyPolicyPopup open={showPrivacy} onClose={() => setShowPrivacy(false)} />
+      )}
+      {showLegal && (
+        <LegalPopup open={showLegal} onClose={() => setShowLegal(false)} />
+      )}
           &copy; 2025 <Link href="https://www.zuyzo.com" target="_blank">Zuyzo</Link>. All rights reserved.
         </span>
 

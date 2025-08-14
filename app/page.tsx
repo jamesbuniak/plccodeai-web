@@ -10,11 +10,14 @@ import Features from "@/components/features";
 import Pricing from "@/components/pricing";
 import FAQ from "@/components/faq-new";
 import WaitlistForm from "@/components/waitlist-form";
+//import Countdown from "@/components/countdown";
 import Footer from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import SectionFadeIn from "@/components/section-fade-in";
 import ProblemSolutionClientWrapper from "@/components/problem-solution-client-wrapper";
 import SupportUsButton from "@/components/support-us-button";
+import dynamic from "next/dynamic";
+const ShieldAnimation = dynamic(() => import("@/components/shield-animation"), { ssr: false });
 
 
 function HowItWorksCards() {
@@ -105,38 +108,41 @@ export default function Home() {
     { key: "howitworks", content: <HowItWorksCards /> },
     { key: "problem", content: <ProblemSolutionClientWrapper /> },
     { key: "security", content: (
-      <div id="security" className="max-w-screen-xl mx-auto w-full py-16 xs:py-28 px-6">
-        <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto mb-10">Security & Compliance</h2>
-        <div className="grid md:grid-cols-2 gap-14">
+      <div id="security" className="max-w-screen-xl mx-auto w-full py-20 xs:py-32 px-6">
+  <div className="grid md:grid-cols-2 gap-2 md:gap-6 items-center">
           <div>
-            <h3 className="font-semibold text-xl mb-3">Your Data, Your Control</h3>
-            <p className="text-base text-muted-foreground mb-2">All files and projects remain private to your account. We never share your data, and you can delete your projects at any time.</p>
-            <ul className="list-disc ml-6 text-muted-foreground text-sm">
-              <li>Data is encrypted in transit and at rest</li>
-              <li>Only you can access your uploaded files and generated code</li>
-              <li>Delete your data at any time from your dashboard</li>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 whitespace-pre-line leading-tight">
+              Security&
+              <br />Compliance&
+              <br />Guaranteed
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6 font-medium">Your automation data is protected by industry-leading security and privacy standards.</p>
+            <ul className="list-disc ml-6 text-base text-muted-foreground space-y-2">
+              <li><span className="font-semibold text-foreground">End-to-end encryption</span> for all files and code</li>
+              <li><span className="font-semibold text-foreground">Built to IEC 61131-3</span> and industry best practices</li>
+              <li><span className="font-semibold text-foreground">Regular security audits</span> and compliance reviews</li>
             </ul>
           </div>
-          <div>
-            <h3 className="font-semibold text-xl mb-3">Standards-Driven</h3>
-            <p className="text-base text-muted-foreground mb-2">We follow IEC 61131-3 and industry best practices for all code generation. Our AI is trained on safety standards and compliance requirements for industrial automation.</p>
-            <ul className="list-disc ml-6 text-muted-foreground text-sm">
-              <li>All code is generated to IEC and industry standards</li>
-              <li>Regular security audits and compliance reviews</li>
-              <li>Continuous improvement based on user and industry feedback</li>
-            </ul>
+          <div className="flex justify-center items-center h-full min-h-[320px]">
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-full blur-2xl opacity-60 bg-blue-500 animate-pulse" />
+              <div className="relative z-10">
+                <ShieldAnimation />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     ) },
     { key: "pricing", content: <Pricing /> },
-    { key: "faq", content: <FAQ /> },
-    { key: "waitlist", content: <WaitlistForm /> },
-    { key: "about", content: (
+  { key: "faq", content: <FAQ /> },
+  { key: "waitlist", content: <WaitlistForm /> },
+  //{ key: "countdown", content: <Countdown /> },
+  { key: "about", content: (
       <div id="about" className="max-w-screen-xl mx-auto w-full py-12 xs:py-20 px-6">
         <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight sm:max-w-xl sm:text-center sm:mx-auto mb-8">About PLCcode.ai</h2>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground text-center mb-8">
-          PLCcode.ai is built by automation engineers for automation engineers. Our mission is to make industrial automation faster, safer, and more accessible through the power of AI. We believe in open standards, user privacy, and continuous improvement. Join us as we shape the future of PLC programming.
+          PLCcode.ai is built by automation engineers for automation engineers. Our mission is to make industrial automation faster, safer, and more accessible through the power of AI. With built-in Git version control, you can collaborate, track changes, and safeguard your automation code. We believe in open standards, user privacy, and continuous improvement. Join us as we shape the future of PLC programming.
         </p>
         <div className="max-w-4xl mx-auto mt-12 grid md:grid-cols-2 gap-8 items-center">
           <div className="bg-accent/60 rounded-xl px-6 py-7 flex flex-col h-full justify-center items-center text-center">

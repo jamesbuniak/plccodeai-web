@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { Card, CardHeader } from "@/components/ui/card";
 import {
-  Cpu,
   Zap,
   Target,
   Brain,
   Shield,
   Rocket,
+  GithubIcon,
 } from "lucide-react";
 
 const features = [
@@ -16,6 +16,12 @@ const features = [
     title: "AI-Driven Code Generation",
     description:
       "Generate production-ready PLC code from plain language or project files. Our AI understands your requirements and delivers optimized logic for your platform.",
+  },
+  {
+    icon: GithubIcon,
+    title: "Built-in Git Version Control",
+    description:
+      "Seamlessly connect your GitHub, GitLab, or Bitbucket account to version, backup, and collaborate on your PLC projects. Track changes, roll back, and work with your team—all in one place.",
   },
   {
     icon: Rocket,
@@ -40,12 +46,6 @@ const features = [
     title: "Data Privacy & Security",
     description:
       "Your files and logic remain private. We never share your data, and you control your project lifecycle.",
-  },
-  {
-    icon: Cpu,
-    title: "Standards Compliance",
-    description:
-      "All code is generated to IEC 61131-3 and industry best practices. Our AI is trained on safety and compliance requirements.",
   },
 ];
 

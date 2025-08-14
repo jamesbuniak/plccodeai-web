@@ -1,6 +1,7 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -8,24 +9,23 @@ import { CircleCheck, Star } from "lucide-react";
 
 const plans = [
   {
-    id: "free",
-    name: "Free Forever",
+    id: "donate",
+    name: "Support Our Mission",
     price: 0,
-    period: "one-time",
-    tagline: "Get started instantly. No credit card required.",
+    period: "donation",
+    tagline: "Help us build the future of PLC programming. Any amount helps!",
     badge: null,
-    label: "Best for exploring",
+    label: "Open Donation",
     features: [
-      "Access to our email newsletter & updates",
-      "Basic AI PLC code generation (limited)",
-      "1 export per day",
-      "Early access notifications",
-      "Community support forum",
+      "Support open industrial automation",
+      "Fund development and infrastructure",
+      "Get project updates and early access news",
+      "Beta access for supporters",
     ],
-    note: null,
-    buttonText: "Start Free",
+    note: "Your donation directly supports the development and growth of PLCcode.ai. All supporters will receive beta access and project updates. Thank you for helping us make automation better for everyone!",
+    buttonText: null, // Will use custom button
     buttonVariant: "outline" as const,
-    buttonHref: "#signup",
+    buttonHref: null,
     isPopular: false,
   },
   {
@@ -48,6 +48,7 @@ const plans = [
     buttonVariant: "default" as const,
     buttonHref: "#support",
     isPopular: true,
+    stripePriceId: "price_1Rw6clLUmXA13VZnqjtm4G9S",
   },
   {
     id: "founder",
@@ -70,6 +71,7 @@ const plans = [
     buttonVariant: "secondary" as const,
     buttonHref: "#founder",
     isPopular: false,
+    stripePriceId: "price_1Rw6ftLUmXA13VZn8EfGUigD",
   },
 ];
 
@@ -172,20 +174,68 @@ const Pricing = () => {
             </CardContent>
 
             <CardFooter className="px-6 pt-0">
-              <Button
-                variant={plan.buttonVariant}
-                size="lg"
-                className={cn(
-                  "w-full rounded-full font-medium transition-all duration-200",
-                  {
-                    "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
-                      plan.isPopular,
-                  }
-                )}
-                aria-label={`Choose ${plan.name} plan for $${plan.price} one-time`}
-              >
-                {plan.buttonText}
-              </Button>
+              {plan.id === "donate" ? (
+                <Button
+                  variant={plan.buttonVariant}
+                  size="lg"
+                  className="w-full rounded-full font-medium transition-all duration-200"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    try {
+                      const res = await fetch('/api/stripe/checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ priceId: 'price_1Rw4ZfLUmXA13VZnFFwDOBUy' })
+                      });
+                      const data = await res.json();
+                      if (data.url) {
+                        window.location.href = data.url;
+                      } else if (data.error) {
+                        alert('Checkout error: ' + data.error);
+                      }
+                    } catch (err) {
+                      alert('Unexpected error: ' + (err instanceof Error ? err.message : String(err)));
+                    }
+                  }}
+                  aria-label="Support with a Donation"
+                >
+                  Support with a Donation
+                </Button>
+              ) : (
+                <Button
+                  variant={plan.buttonVariant}
+                  size="lg"
+                  className={cn(
+                    "w-full rounded-full font-medium transition-all duration-200",
+                    {
+                      "bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl":
+                        plan.isPopular,
+                    }
+                  )}
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    try {
+                      if (!plan.stripePriceId) return;
+                      const res = await fetch('/api/stripe/checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ priceId: plan.stripePriceId })
+                      });
+                      const data = await res.json();
+                      if (data.url) {
+                        window.location.href = data.url;
+                      } else if (data.error) {
+                        alert('Checkout error: ' + data.error);
+                      }
+                    } catch (err) {
+                      alert('Unexpected error: ' + (err instanceof Error ? err.message : String(err)));
+                    }
+                  }}
+                  aria-label={`Choose ${plan.name} plan for $${plan.price} one-time`}
+                >
+                  {plan.buttonText}
+                </Button>
+              )}
             </CardFooter>
           </Card>
         ))}

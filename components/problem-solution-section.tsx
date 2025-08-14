@@ -27,7 +27,7 @@ export default function ProblemSolutionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="mb-2"
+                className="mb-2 transition-colors duration-300 hover:text-primary hover:bg-accent/30 rounded-lg px-2 cursor-pointer"
               >
                 {content}
               </motion.li>
@@ -50,7 +50,7 @@ export default function ProblemSolutionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="mb-2"
+                className="mb-2 transition-colors duration-300 hover:text-primary hover:bg-accent/30 rounded-lg px-2 cursor-pointer"
               >
                 {content}
               </motion.li>
