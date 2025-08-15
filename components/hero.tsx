@@ -45,15 +45,15 @@ const Hero = () => {
         </div>
       </div>
       {/* FluidAnimation in its own section for mobile only */}
-      <section className="lg:hidden w-full flex items-center justify-center py-10">
+      <section className="lg:hidden w-full min-h-[60vh] flex items-center justify-center" style={{height: '60vh'}}>
         <div
-          className="w-full flex items-center justify-center"
+          className="flex items-center justify-center w-full h-full"
           style={{
             opacity: 1,
             animation: 'fadeInFluid 3.5s ease-in',
           }}
         >
-          <div className="w-full max-w-[480px] aspect-square">
+          <div className="w-full h-full max-w-[480px] max-h-[480px] aspect-square flex items-center justify-center">
             <FluidAnimation />
           </div>
         </div>
